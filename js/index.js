@@ -11,4 +11,9 @@ document.addEventListener("DOMContentLoaded", function(){
         localStorage.setItem("catID", 103);
         window.location = "products.html"
     });
+
+    var getemail = localStorage.getItem('emailkey')
+    const emailLugar = document.getElementById("elmailMostrado")
+    emailLugar.innerHTML += getemail
+
 });
