@@ -1,4 +1,3 @@
-const url = "https://japceibal.github.io/emercado-api/cats_products/101.json"
 
 function getHTML(producto) {
     return ` 
@@ -22,12 +21,14 @@ function getHTML(producto) {
   </div>
   `;             
 }
-
+let categoria = localStorage.getItem("catID")
 
 document.addEventListener("DOMContentLoaded", async function() {
-    const listado = document.querySelector('.product-list');
+  
+  
+  const listado = document.querySelector('.product-list');
 
-    const listadoProductos = await getJSONData(url);
+    const listadoProductos = await getJSONData(PRODUCTS_URL + categoria + EXT_TYPE);
     console.log(listadoProductos)
 
     listadoProductos.data.products.forEach(producto => {
