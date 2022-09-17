@@ -9,9 +9,10 @@ document.addEventListener('DOMContentLoaded', () =>{
         if (Array.from(inputs).some (input => { return input.value == ''})  ) {
            alert ("email o contraseña incorrecta") 
         }else{
+
             localStorage.setItem('emailkey', emailconst.value);
             window.location = "index2.html";
-           
+
         }
         
     })

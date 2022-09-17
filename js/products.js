@@ -1,48 +1,3 @@
-
-function getHTML(producto) {
-    return ` 
-    <div class="row shadow p-0 rounded overflow-hidden mb-3 bg-white data-id="${producto.id}">
-    <div class="col-3 p-0">
-      <img class="img-fluid" src="${producto.image}" alt="">
-    </div>
-    <div class="col-9 d-flex flex-column justify-content-between">
-      <div class="productoBody">
-        <h3>${producto.name}</h3>
-        <p>${producto.description}</p>
-      </div>
-      <div class="productoFooter d-flex justify-content-between">
-        <p>cantidad vendidos <span class="cant">${producto.soldCount}</span></p>
-        <div class="precio">
-          <span class="moneda">${producto.currency}</span>
-          <span class="precio">${producto.cost}</span>
-        </div>
-      </div>
-    </div>
-  </div>
-  `;             
-}
-
-let categoria = localStorage.getItem("catID")
-
-document.addEventListener("DOMContentLoaded", async function() {
-  
-  
-  const listado = document.querySelector('.product-list');
-
-    const listadoProductos = await getJSONData(PRODUCTS_URL + categoria + EXT_TYPE);
-    console.log(listadoProductos)
-
-    listadoProductos.data.products.forEach(producto => {
-        listado.innerHTML += getHTML(producto);
-        
-        
-    })
-
-        
-   
-    
-});
-
 const ORDER_ASC_BY_COST = "CostAsc";
 const ORDER_DESC_BY_COST = "CostDesc";
 const ORDER_BY_SOLD_COUNT = "Relevancia";
@@ -50,6 +5,12 @@ let currentProductsArray = [];
 let currentSortCriteria = undefined;
 let minCount = undefined;
 let maxCount = undefined;
+let categoria = localStorage.getItem("catID")
+
+function setProdID(id) {
+  localStorage.setItem("prodID", id);
+  window.location = "product-info.html"
+}
 
 function sortCategories(criteria, array){
     let result = [];
@@ -90,7 +51,7 @@ function showList(){
             ((maxCount == undefined) || (maxCount != undefined && parseInt(Product.cost) <= maxCount))){
 
             htmlContentToAppend +=` 
-            <div class="row shadow p-0 rounded overflow-hidden mb-3 bg-white data-id="${Product.id}">
+            <div onclick="setProdID(${Product.id})" class="cursor-active row shadow p-0 rounded overflow-hidden mb-3 bg-white">
             <div class="col-3 p-0">
               <img class="img-fluid" src="${Product.image}" alt="">
             </div>
@@ -112,6 +73,8 @@ function showList(){
         }
 
         document.getElementById("contenedorParaOrdenar").innerHTML = htmlContentToAppend;
+
+
     }
 }
 
@@ -187,3 +150,62 @@ document.addEventListener("DOMContentLoaded", function(e){
         showList();
     });
 });
+
+
+
+
+/*
+
+----antigua manera---
+
+function getHTML(producto) {
+  return `    
+  
+  <div id="divProducto" class="row shadow p-0 rounded overflow-hidden mb-3 bg-white data-id="${producto.id}">
+  <div class="col-3 p-0">
+    <img class="img-fluid" src="${producto.image}" alt="">
+  </div>
+  <div class="col-9 d-flex flex-column justify-content-between">
+    <div class="productoBody">
+      <h3>${producto.name}</h3>
+      <p>${producto.description}</p>
+    </div>
+    <div class="productoFooter d-flex justify-content-between">
+      <p>cantidad vendidos <span class="cant">${producto.soldCount}</span></p>
+      <div class="precio">
+        <span class="moneda">${producto.currency}</span>
+        <span class="precio">${producto.cost}</span>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+`;         
+
+}
+
+document.addEventListener("DOMContentLoaded", async function() {
+  
+  
+  
+  const listado = document.querySelector('.product-list');
+ 
+
+    const listadoProductos = await getJSONData(PRODUCTS_URL + categoria + EXT_TYPE);
+    console.log(listadoProductos)
+    
+    listadoProductos.data.products.forEach(producto => {
+        listado.innerHTML += getHTML(producto);
+        
+      
+
+      
+        
+    })
+               
+    
+});
+
+*/
