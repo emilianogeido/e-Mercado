@@ -50,3 +50,8 @@ var getemail = localStorage.getItem('emailkey')
 const emailLugar = document.getElementById("elmailMostrado")
 emailLugar.innerHTML += getemail
 })
+
+function Cerrarsesion() {
+  localStorage.removeItem('emailkey')
+  window.location = "index.html"
+}
