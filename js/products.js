@@ -7,10 +7,7 @@ let minCount = undefined;
 let maxCount = undefined;
 let categoria = localStorage.getItem("catID")
 
-function setProdID(id) {
-  localStorage.setItem("prodID", id);
-  window.location = "product-info.html"
-}
+
 
 function sortCategories(criteria, array){
     let result = [];
@@ -125,6 +122,7 @@ document.addEventListener("DOMContentLoaded", function(e){
         maxCount = undefined;
 
         showList();
+
     });
 
     document.getElementById("rangeFilterCount").addEventListener("click", function(){

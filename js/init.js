@@ -39,3 +39,14 @@ let getJSONData = function(url){
         return result;
     });
 }
+
+function setProdID(id) {
+  localStorage.setItem("prodID", id);
+  window.location = "product-info.html"
+}
+
+document.addEventListener("DOMContentLoaded", function(){
+var getemail = localStorage.getItem('emailkey')
+const emailLugar = document.getElementById("elmailMostrado")
+emailLugar.innerHTML += getemail
+})

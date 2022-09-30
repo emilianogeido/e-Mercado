@@ -44,6 +44,18 @@ function getHTMLComment(producto) {
 
 }
 
+function getHTMLproductosRelacionados(producto) {
+   return ` 
+   <div class="card col-sm-2 cursor-active row shadow p-0 rounded overflow-hidden mb-3 bg-white" onclick="setProdID(${producto.id})">  
+      <img src="${producto.image}" class="img-fluid" alt="" height="150" width="150">    
+      <p>${producto.name}</p>
+         
+      </div>
+   </div>
+ `;
+
+}
+
 document.addEventListener("DOMContentLoaded", async function () {
    const listado = document.querySelector('.container-product');
    const Json = await getJSONData(PRODUCTS_URL + categoria + EXT_TYPE);
@@ -81,6 +93,17 @@ document.addEventListener("DOMContentLoaded", async function () {
 
 });
 
+document.addEventListener("DOMContentLoaded", async function () {
+   const listado = document.querySelector('.productosRelacionados');
+   const Json = await getJSONData(PRODUCTS_URL + categoria + EXT_TYPE);
+   let array = Json.data.products
+   console.log(array)
+   array.forEach(array => {
+      if ((array.id) != productoID) {
+         listado.innerHTML += getHTMLproductosRelacionados(array);
+      }
+   })
+});
 
 
 
