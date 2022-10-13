@@ -23,9 +23,7 @@ function getHTML(article) {
 document.addEventListener("DOMContentLoaded", async function () {
   const listado = document.querySelector('#tBody-Carrito');
   const Json = await getJSONData(CART_INFO_URL + usuario + EXT_TYPE);
-  console.log(Json)
   var array = Json.data.articles
-  console.log(array)
   array.forEach(array => {
     listado.innerHTML += getHTML(array);
 
