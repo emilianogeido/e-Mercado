@@ -6,13 +6,13 @@ function getHTML(article) {
    <tr>
    <th scope="row"> <img src="${article.image}" class="img-fluid" alt="" height="70" width="70"></th>
    <td>${article.name}</td>
-   <td>USD${article.unitCost}</td>
+   <td>${article.currency}${article.unitCost}</td>
    <td>  
      <div class="col-2">
-       <input type="number" class= "form-control" id="input-cantidad"  >
+       <input type="number" value="1" class= "form-control" id="input-cantidad"  >
    </div>
  </td>
-   <td id="subtotal"></td>
+   <td id="subtotal">${article.currency}${article.unitCost}</td>
  </tr>
  `;
 
@@ -31,12 +31,15 @@ document.addEventListener("DOMContentLoaded", async function () {
 
       var input = document.getElementById("input-cantidad");
       var valor = input.value;
+      
 
       if (valor >= 0) {
         document.getElementById("subtotal").innerHTML = 'USD'+ valor * array.unitCost
       }
 
     });
+
+    
 
   })
 
