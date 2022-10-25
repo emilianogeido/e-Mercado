@@ -71,21 +71,21 @@
     </div>
     <h4>Tipo de envío</h4>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" value="0.05" id="flexRadioDefault1">
       <label class="form-check-label" for="flexRadioDefault1">
-        Premium 2 a 5 días (15%)
+        Standard 12 a 15 días (5%)
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+      <input class="form-check-input" type="radio" name="flexRadioDefault" value="0.07" id="flexRadioDefault2" >
       <label class="form-check-label" for="flexRadioDefault2">
         Express 5 a 8 días (7%)
       </label>
     </div>
     <div class="form-check">
-      <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+      <input class="form-check-input" type="radio" name="flexRadioDefault" value="0.15" id="flexRadioDefault3">
       <label class="form-check-label" for="flexRadioDefault1">
-        Standard 12 a 15 días (5%)
+        Premium 2 a 5 días (15%)
       </label>
     </div>
     
@@ -109,30 +109,30 @@
       <h4>Costos</h4>
        <div class="row border border-1" >
         <div class="col">
-          <p >asfasfas</p>
-          <p >asfasfas</p>
+          <p >Subtotal General</p>
+          <p >Costo de todos los productos</p>
         </div>
         <div class="col">
-          <p class="d-flex justify-content-end">asfasfas</p>
-        </div>
-       </div>
-
-       <div class="row border border-1" >
-        <div class="col">
-          <p >asfasfas</p>
-          <p >asfasfas</p>
-        </div>
-        <div class="col">
-          <p class="d-flex justify-content-end">asfasfas</p>
+          <p class="d-flex justify-content-end" id="subtotalGeneral"></p>
         </div>
        </div>
 
        <div class="row border border-1" >
         <div class="col">
-          <p >asfasfas</p>
+          <p >Costo de envio</p>
+          <p >asfasfas(poner si es premium etc</p>
         </div>
         <div class="col">
-          <p class="d-flex justify-content-end">asfasfas</p>
+          <p class="d-flex justify-content-end" id="costoEnvio"></p>
+        </div>
+       </div>
+
+       <div class="row border border-1" >
+        <div class="col">
+          <p >Total a pagar</p>
+        </div>
+        <div class="col">
+          <p class="d-flex justify-content-end" id="totalPagar"></p>
         </div>
        </div>
         </div>
