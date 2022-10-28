@@ -1,5 +1,31 @@
 
 const usuario = 25801
+const forms = document.querySelectorAll("form");
+const tarjeta = document.querySelector("#tarjeta");
+const transferencia = document.querySelector("#transferenciaBancaria");
+const numeroCuenta = document.querySelector("#numeroCuenta");
+const numeroTarjeta = document.querySelector("#numeroTarjeta");
+const codigoSeg = document.querySelector("#codigoSeg");
+const vencimiento = document.querySelector("#vencimiento");
+
+
+tarjeta.onclick = () => {
+  transferencia.checked=false;
+  numeroCuenta.disabled = true
+  vencimiento.disabled = false
+  codigoSeg.disabled = false
+  numeroTarjeta.disabled = false
+};
+
+transferencia.onclick = () => {
+  tarjeta.checked=false;
+  vencimiento.disabled = true
+  codigoSeg.disabled = true
+  numeroTarjeta.disabled = true
+  numeroCuenta.disabled = false
+};
+
+
 
 function getHTML(article) {
   return ` 
