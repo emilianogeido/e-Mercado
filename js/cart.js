@@ -8,30 +8,30 @@ const numeroTarjeta = document.querySelector("#numeroTarjeta");
 const codigoSeg = document.querySelector("#codigoSeg");
 const vencimiento = document.querySelector("#vencimiento");
 const btnComprar = document.querySelector("#btn-comprar");
-const btnLinkTerms = document.querySelector("#btn-link-terms")
+const btnModalPaiments = document.querySelector("#btn-link-terms")
 const divMustAcceptTerms = document.querySelector("#div-must-accept-terms")
 
 
-
+/* verify paiment */
 const verifyRadioState = () => {
   if (!tarjeta.checked && !transferencia.checked) {
-    btnLinkTerms.classList.add("link-danger");
+    btnModalPaiments.classList.add("link-danger");
     divMustAcceptTerms.classList.add("d-inline");
   } else if (!numeroCuenta.checkValidity()) {
-    btnLinkTerms.classList.add("link-danger");
+    btnModalPaiments.classList.add("link-danger");
     divMustAcceptTerms.classList.add("d-inline");
   } else if (!numeroTarjeta.checkValidity()) {
-    btnLinkTerms.classList.add("link-danger");
+    btnModalPaiments.classList.add("link-danger");
     divMustAcceptTerms.classList.add("d-inline");
   } else if (!codigoSeg.checkValidity()) {
-    btnLinkTerms.classList.add("link-danger");
+    btnModalPaiments.classList.add("link-danger");
     divMustAcceptTerms.classList.add("d-inline");
   } else if (!vencimiento.checkValidity()) {
-    btnLinkTerms.classList.add("link-danger");
+    btnModalPaiments.classList.add("link-danger");
     divMustAcceptTerms.classList.add("d-inline");
   }
   else {
-    btnLinkTerms.classList.remove("link-danger");
+    btnModalPaiments.classList.remove("link-danger");
     divMustAcceptTerms.classList.remove("d-inline");
   }
 };
@@ -57,7 +57,7 @@ frmsSbmt = (forms) => {
 btnComprar.onclick = () => {
   frmsSbmt(forms);
   verifyRadioState();
-  console.log('sumit')
+  
 };
 
 let form = document.getElementsByTagName("form")[0];
