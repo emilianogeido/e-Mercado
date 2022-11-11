@@ -5,7 +5,7 @@ const estrellaVacia = '<span class="fa fa-star"></span>'
 
 function getHTML(producto) {
    return ` 
-   <div class="card col-sm-6">   
+   <div>   
       <h2>${producto.name}</h2>
       <hr>
       <div class="info-producto">
@@ -29,7 +29,7 @@ function getHTML(producto) {
 function getHTMLComment(producto) {
    return ` 
    <br>
-<div class="card col-sm-6">
+<div">
    <div class="card-header">
    ${producto.dateTime}
    </div>
@@ -46,7 +46,7 @@ function getHTMLComment(producto) {
 
 function getHTMLproductosRelacionados(producto) {
    return ` 
-   <div class="card col-sm-2 cursor-active row shadow p-0 rounded overflow-hidden mb-3 bg-white" onclick="setProdID(${producto.id})">  
+   <div class="card col-lg-5 cursor-active row shadow p-0 rounded overflow-hidden mb-3 bg-white" onclick="setProdID(${producto.id})">  
       <img src="${producto.image}" class="img-fluid" alt="" height="150" width="150">    
       <p>${producto.name}</p>
          
